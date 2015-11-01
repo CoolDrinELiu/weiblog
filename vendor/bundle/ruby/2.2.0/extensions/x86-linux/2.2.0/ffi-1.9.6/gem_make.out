@@ -1,0 +1,44 @@
+/home/coldfarmer/.rvm/rubies/ruby-2.2.0/bin/ruby -r ./siteconf20151030-21124-1wd8j2j.rb extconf.rb
+checking for ffi_call() in -lffi... yes
+checking for ffi_prep_closure()... yes
+checking for ffi_raw_call()... yes
+checking for ffi_prep_raw_closure()... yes
+checking for rb_thread_blocking_region()... no
+checking for rb_thread_call_with_gvl()... yes
+checking for rb_thread_call_without_gvl()... yes
+checking for ffi_prep_cif_var()... yes
+creating extconf.h
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling Types.c
+compiling FunctionInfo.c
+compiling Type.c
+compiling Function.c
+compiling StructByReference.c
+compiling LongDouble.c
+compiling DataConverter.c
+compiling ffi.c
+compiling Buffer.c
+compiling ArrayType.c
+compiling Call.c
+compiling Pointer.c
+compiling MethodHandle.c
+compiling Variadic.c
+compiling MemoryPointer.c
+compiling Thread.c
+compiling StructLayout.c
+compiling Struct.c
+compiling AbstractMemory.c
+compiling LastError.c
+compiling DynamicLibrary.c
+compiling StructByValue.c
+compiling Platform.c
+compiling MappedType.c
+compiling ClosurePool.c
+linking shared-object ffi_c.so
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 ffi_c.so ./.gem.20151030-21124-9qjb5t

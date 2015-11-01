@@ -7,6 +7,11 @@ else
 "#{base_title} | #{page_title}"
 end
   end
-
-
+  def time_check
+    if Time.now.hour>5 && Time.now.hour<12
+      "上午好"
+    else
+      "下午好"
+    end
+  end
 end

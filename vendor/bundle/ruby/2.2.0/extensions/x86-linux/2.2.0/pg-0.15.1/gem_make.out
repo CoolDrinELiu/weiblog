@@ -1,0 +1,34 @@
+/home/coldfarmer/.rvm/rubies/ruby-2.2.0/bin/ruby -r ./siteconf20151030-30929-i941nq.rb extconf.rb --with-pg-config=/usr/pgsql-9.1/bin/pg_config
+Using config values from /usr/pgsql-9.1/bin/pg_config
+sh: 1: /usr/pgsql-9.1/bin/pg_config: not found
+sh: 1: /usr/pgsql-9.1/bin/pg_config: not found
+checking for libpq-fe.h... no
+Can't find the 'libpq-fe.h header
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--without-opt-dir
+	--with-opt-include
+	--without-opt-include=${opt-dir}/include
+	--with-opt-lib
+	--without-opt-lib=${opt-dir}/lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=/home/coldfarmer/.rvm/rubies/ruby-2.2.0/bin/$(RUBY_BASE_NAME)
+	--with-pg
+	--without-pg
+	--with-pg-dir
+	--without-pg-dir
+	--with-pg-include
+	--without-pg-include=${pg-dir}/include
+	--with-pg-lib
+	--without-pg-lib=${pg-dir}/lib
+	--with-pg-config
+
+extconf failed, exit code 1
