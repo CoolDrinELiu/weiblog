@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
+
     if signed_in?
       @user_name = @current_user.name
       @micropost = current_user.microposts.build

@@ -1,0 +1,6 @@
+<h1>终于！</h1>
+我们等来了<%= @user.name %>！
+
+欢迎您加入我们社区，点击下面的链接激活您的账号：
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>

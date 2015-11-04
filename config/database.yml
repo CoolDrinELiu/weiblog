@@ -9,6 +9,7 @@ default: &default
   pool: 5
   username: root
   password: aa1111
+  encoding: utf8
 
 
 development:
