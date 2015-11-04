@@ -1,7 +1,7 @@
 class Micropost < ActiveRecord::Base
   belongs_to :user
   validates :user_id, presence: true
-  validates :content, presence: true, length: { maximum: 140 }
+  validates :content, presence:{message:"不能为空"}, length: { maximum: 140 }
 
   # Returns microposts from the users being followed by the given user.
   def self.from_users_followed_by(user)

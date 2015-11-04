@@ -19,10 +19,10 @@ class User < ActiveRecord:: Base
                              message: "格式不正确" },
             uniqueness: { case_sensitive: false }
   has_secure_password
-  validates :password,confirmation:{
-                                                       message:"与密码不匹配"
-                                                        }, length: { minimum: 6,
+  validates :password, length: { minimum: 6,
                                                        message: "最少6位"}
+
+
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64
