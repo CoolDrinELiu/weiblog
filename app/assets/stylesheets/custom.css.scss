@@ -1,5 +1,19 @@
 @import "bootstrap";
 
+.checkbox {
+  margin-top: -20px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 5px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
 aside {
   section {
     padding: 10px 0;

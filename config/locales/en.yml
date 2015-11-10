@@ -72,7 +72,7 @@ en:
           name: "用户名"
           email: "邮箱"
           password: "密码"
-          password_confirmation: "密码确认"
+          password_confirmation: "密码"
         micropost:
           content: "内容"
   errors:

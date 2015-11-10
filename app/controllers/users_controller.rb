@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :signed_in_user, only: [:index, :edit, :update]
+  before_action :logged_in_user, only: [:index, :edit, :update]
   before_action :correct_user, only: [:edit, :update]
   # before_action 已经调用:correct_user，
   # So a alternative choice is to delete the definition of @user in other fuc.
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      sign_in(@user)
+     log_in(@user)
       flash[:success] = "欢迎使用!"
       redirect_to @user
     else
