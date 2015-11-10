@@ -2,12 +2,20 @@
 
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for(:session, url: sessions_path) do | f| %>
+    <%= form_for(:session, url: sessions_path) do |f| %>
 
         <%= f.label "邮箱" %>
         <%= f.text_field :email %>
+
         <%= f.label "密码" %>
         <%= f.password_field :password %>
+
+    <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span>记住我</span>
+    <% end %>
+<br>
+
         <%= f.submit "登陆" , class: "btn btn-large btn-primary" %>
     <% end %>
     <p>没有账号？ <%= link_to "注册一个账号吧！" , signup_path %></p>

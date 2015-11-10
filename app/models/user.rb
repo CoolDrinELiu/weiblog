@@ -1,4 +1,5 @@
 class User < ActiveRecord:: Base
+  attr_accessor :remember_token
   has_many :microposts, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
@@ -7,9 +8,9 @@ class User < ActiveRecord:: Base
            dependent: :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
   # has_many :followers, through: :relationships, source: :follower
-  before_create :create_activation_digest
-  before_save { self.email = email.downcase }
-  before_create :create_remember_token
+  # before_create :create_activation_digest
+  before_save {  self.email = email.downcase }
+  # before_create :create_remember_token
   validates :name, presence: {message: "不能为空"}, length: { maximum:10,
                                                                            too_long: "最多输入10个字母或5个中文" }
 
@@ -24,7 +25,7 @@ class User < ActiveRecord:: Base
 
 
 
-  def User.new_remember_token
+  def User.new_token
     SecureRandom.urlsafe_base64
   end
 
@@ -47,10 +48,30 @@ class User < ActiveRecord:: Base
     relationships.find_by(followed_id: other_user.id).destroy
   end
 
-  private
-  def create_remember_token
-    self.remember_token = User.encrypt(User.new_remember_token)
+  def remember
+    self.remember_token = User.new_token
+    update_attribute(:remember_digest, User.digest(remember_token))
   end
+
+  def authenticated?(remember_token)
+    return false if remember_digest.nil?
+    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
+
+  def forget
+    update_attribute(:remember_digest, nil)
+  end
+
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+        BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+
+  private
+  # def create_remember_token
+  #   self.remember_token = User.encrypt(User.new_remember_token)
+  # end
 
   def create_activation_digest
     self.activation_token  = User.new_token
