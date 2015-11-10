@@ -67,7 +67,7 @@ class User < ActiveRecord:: Base
         BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
-  
+
   private
   # def create_remember_token
   #   self.remember_token = User.encrypt(User.new_remember_token)
